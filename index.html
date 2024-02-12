@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <style>
+*{
+
+
+    padding:0 ;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+/* 
+to centre everything  */
+.game {
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+}
+/* 
+title of the game  */
+.title {
+
+
+    position: absolute;
+    top:0;
+    font-size: 2rem;
+    z-index: 2;
+
+}
+/* 
+the score board  */
+
+.score {
+
+    display: flex;
+    width:30vw;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 70px;
+    z-index: 1;
+}
+
+/* the score reader */
+
+.p-count , .c-count {
+
+    text-align: centre;
+    font-size: 1.5 rem;
+    margin-top: 1 rem;
+}
+
+/* displaying the buttons in a row  */
+
+.options {
+
+
+    display: flex;
+    width: 50vw ;
+    justify-content: space-evenly;
+    margin-top:2rem; 
+    
+}
+/* 
+styling the buttons together  */
+
+.rock , .paper , .scissor {
+
+    padding: 0.8 rem ;
+    width: 100px;
+    border-radius: 20px;
+    background-color: blue;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+}
+
+.move {
+
+    font-size: 2rem;
+    font-weight: bold ;
+}
+/* styling the reload button  */
+.reload {
+
+    display: none;
+    margin-top: 2rem;
+    padding:1 rem;
+    background: blue;
+    outline: none;
+    border:none;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+/* 
+responsive design  */
+
+@media screen and (max-width : 612px)
+{
+    .title {
+
+        text-align :center;
+
+    }
+
+    .score{
+
+        position: absolute;
+        top: 200px;
+        width:100vw;
+    }
+
+    .options{
+        width: 100vw;
+    }
+
+
+}
+
+
+
+.result {
+
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+    </style>
+
+
+
+    <script>
+
+const game = () => {
+
+    let playerScore 
+}
+
+
+    </script>
+    <body>  
+
+
+
+
+ <section class="game" > 
+
+
+<div class="title">
+<h1>  Rock Papper Scissors</h1>
+</div>
+  <!--Display Score of player and computer -->
+<div class="score">
+
+    <div class="playerScore "> 
+    <h2> Player </h2>
+     <p class="p-count count">0 </p>
+</div>
+
+
+<div class="computerScore ">
+
+    <h2> Computer </h2>
+    <p class="c-count count "> 0 </p>
+
+
+</div>
+
+</div>
+
+<div class="move"> Choose your move </div>
+
+ <!--Number of moves left before game ends -->
+<div class="move-left"> Moves Left : 10 </div>
+
+   <!--Options available to player to play game -->
+
+   <div class="options">
+
+    <button class="rock"> Rock</buttonv>
+    <button class="paper "> papper</button>
+    <button class="scissor"> scissors</button>
+
+   </div>
+
+<!--Final result of game -->
+
+<div class="result"> </div>
+
+<!-- reload the game  -->
+
+<button class="reload"> </button>
+
+</section>
+
+
+
+
+</div>
+     
+        
+        <script src="" async defer></script>
+    </body>
+</html>
