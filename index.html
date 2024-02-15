@@ -148,7 +148,23 @@ responsive design  */
 
 const game = () => {
 
-    let playerScore 
+    //initial score of player and computer
+    let playerScore = 0;
+    let computerScore = 0;
+    let movesLeft = 10;
+ 
+
+    //function to play the game
+    
+const rockbtn = document.querySelector('.rock');
+const paperbtn = document.querySelector('.paper');
+const scissorbtn = document.querySelector('.scissor');
+const playerOptions = [rockbtn,paperbtn,scissorbtn];
+const computerOptions = ['rock', 'paper','scissor'];
+
+
+
+
 }
 
 
@@ -164,12 +180,15 @@ const game = () => {
 <div class="title">
 <h1>  Rock Papper Scissors</h1>
 </div>
+
   <!--Display Score of player and computer -->
+
 <div class="score">
 
     <div class="playerScore "> 
     <h2> Player </h2>
      <p class="p-count count">0 </p>
+
 </div>
 
 
@@ -186,13 +205,14 @@ const game = () => {
 <div class="move"> Choose your move </div>
 
  <!--Number of moves left before game ends -->
+
 <div class="move-left"> Moves Left : 10 </div>
 
    <!--Options available to player to play game -->
 
    <div class="options">
 
-    <button class="rock"> Rock</buttonv>
+    <button class="rock"> Rock</button>
     <button class="paper "> papper</button>
     <button class="scissor"> scissors</button>
 
@@ -206,12 +226,14 @@ const game = () => {
 
 <button class="reload"> </button>
 
+
+
+
 </section>
 
 
 
 
-</div>
      
         
         <script src="" async defer></script>
