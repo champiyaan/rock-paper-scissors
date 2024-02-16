@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-      <style>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<style>
 
-
-
-      </style>
-
-      <script>
-
-
-
-
-      </script>
-
-
+</style>
 <h1> Rock Paper Scissors</h1>
 
-<div id="options">
+<!-- button options options  -->
+<div class="choices">
+    <button onclick="playGame('rock')">rock 🤛</button>
+    <button onclick="playGame('paper')">paper🤚</button>
+    <button onclick="playGame('scissor')">scissor ✂</button>
+</div>
 
-<button onclick="playGame('rock')">rock 🤛</button>
-<button onclick="playGame('paper')">paper🤚</button>
-<button onclick = "playGame('scissor')">scissor ✂ </button>
+<!-- display for the players  -->
+<div id="playerDisplay"> player </div>
+<div id="computerDisplay"> computer </div>
+<div id="resultDisplay"></div>
 
+<!-- displays for the strong mechanisms  -->
+<div class="scoreDisplay">Player Score: 
+    <span id="playerScoreDisplay">0</span>
+</div>
+
+<div class="scoreDisplay">Computer Score: 
+    <span id="computerScoreDisplay">0</span>
 </div>
 
 
+<script>
 
 
-        
-        <script src="" async defer></script>
-    </body>
+</script>
+<script src="index.js" ></script>
+</body>
 </html>
