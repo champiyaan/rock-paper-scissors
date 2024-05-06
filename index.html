@@ -1,46 +1,169 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<style>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-</style>
-<h1> Rock Paper Scissors</h1>
+      h1 {
+        font-size: 3.5rem;
+        color: blue;
+      }
 
-<!-- button options options  -->
-<div class="choices">
-    <button onclick="playGame('rock')">rock 🤛</button>
-    <button onclick="playGame('paper')">paper🤚</button>
-    <button onclick="playGame('scissor')">scissor ✂</button>
-</div>
+      .choices {
+        margin-bottom: 30px;
+      }
 
-<!-- display for the players  -->
-<div id="playerDisplay"> player </div>
-<div id="computerDisplay"> computer </div>
-<div id="resultDisplay"></div>
+      .choices button {
+        font-size: 60px;
+        min-width: 160px;
+        margin: 0 10px;
+        background-color: #82bb8e;
+        cursor: pointer;
+        /* eases the color after 5s  */
+        transition: background-color 0.5s ease;
+        border-radius: 10px;
+      }
 
-<!-- displays for the strong mechanisms  -->
-<div class="scoreDisplay">Player Score: 
-    <span id="playerScoreDisplay">0</span>
-</div>
+      .choices button:hover {
+        background-color: #0deb3d;
+      }
 
-<div class="scoreDisplay">Computer Score: 
-    <span id="computerScoreDisplay">0</span>
-</div>
+      #playerDisplay,
+      #computerDisplay {
+        font-size: 2.5rem;
+      }
 
+      #resultDisplay {
+        font-size: 2rem;
+        margin: 30px 0;
+      }
+      /* text for the winner or loser  */
+      .greenText {
+        color: green;
+      }
 
-<script>
+      .redText {
+        color: red;
+      }
 
+      .scoreDisplay {
+        margin-top: 20px;
+      }
+    </style>
 
-</script>
-<script src="index.js" ></script>
-</body>
+    <h1>Rock Paper Scissors</h1>
+
+    <!-- button options options  -->
+    <div class="choices" id="buttonContainer">
+      <button onclick="playGame('rock')">rock 🤛</button>
+      <button onclick="playGame('paper')">paper🤚</button>
+      <button onclick="playGame('scissor')">scissor ✂</button>
+    </div>
+
+    <!-- display for the players  -->
+    <div id="playerDisplay">player</div>
+    <div id="computerDisplay">computer</div>
+    <div id="resultDisplay"></div>
+
+    <!-- displays for the strong mechanisms  -->
+    <div class="scoreDisplay">
+      Player Score:
+      <span id="playerScoreDisplay">0</span>
+    </div>
+
+    <div class="scoreDisplay">
+      Computer Score:
+      <span id="computerScoreDisplay">0</span>
+    </div>
+
+    <script>
+      const choices = ["rock", "paper", "scissor"];
+      const playerDisplay = document.getElementById("playerDisplay");
+      const computerDisplay = document.getElementById("computerDisplay");
+      const resultDisplay = document.getElementById("resultDisplay");
+      const playerScoreDisplay = document.getElementById("playerScoreDisplay");
+      const computerScoreDisplay = document.getElementById(
+        "computerScoreDisplay"
+      );
+      let playerScore = 0;
+      let computerScore = 0;
+
+      function playGame(playerChoice) {
+        const computerChoice = choices[Math.floor(Math.random() * 3)];
+        let result = "";
+
+        if (playerChoice === computerChoice) {
+          result = "It is a tie ";
+        } else {
+          switch (playerChoice) {
+            case "rock":
+              result = computerChoice === "scissor" ? "YOU WIN " : "YOU LOSE";
+              break;
+
+            case "paper":
+              result = computerChoice === "rock" ? "YOU WIN" : "YOU LOSE";
+              break;
+
+            case "scissor":
+              result = computerChoice === "paper" ? "YOU WIN" : "YOU LOSE";
+              break;
+          }
+        }
+
+        playerDisplay.textContent = `Player Choice : ${playerChoice}`;
+        computerDisplay.textContent = `Computer Choice : ${computerChoice}`;
+        resultDisplay.textContent = result;
+
+        resultDisplay.classList.remove("greenText", "redText");
+
+        switch (result) {
+          case "YOU WIN":
+            resultDisplay.classList.add("greenText");
+            playerScore++;
+            playerScoreDisplay.textContent = playerScore;
+            break;
+
+          case "YOU LOSE":
+            resultDisplay.classList.add("redText");
+            computerScore++;
+            computerScoreDisplay.textContent = computerScore;
+            break;
+        }
+        // Check if any player has reached 5 points
+
+        if (playerScore === 5) {
+          resultDisplay.textContent = "Player Won The Game !!";
+          disableButtons();
+        } else if (computerScore === 5) {
+          resultDisplay.textContent = "The Computer Won the Game !!";
+          disableButtons();
+        }
+      }
+
+      function disableButtons() {
+        const buttons = document.querySelectorAll("#buttonContainer button");
+        buttons.forEach((button) => {
+          button.disabled = true;
+        });
+      }
+    </script>
+
+    <script src="index.js"></script>
+  </body>
 </html>
